@@ -275,7 +275,7 @@ public class FunctionRevision{
 // ANY BASE TO ANY BASE
 // (METHOD 2)
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -309,6 +309,52 @@ public class FunctionRevision{
         System.out.println(decimalToAnyBase);
     }
 
+}*/
+
+//-------------------------------------------------------------------------------------------------
+
+// ANY BASE ADDITION
+
+package com.company;
+
+import java.util.*;
+
+public class FunctionRevision{
+
+    public static int anyBaseAddition(int n1,int n2,int b){
+
+        int ans=0;
+        int carry=0;
+        int power=1;
+
+        while(carry!=0 || n1!=0 || n2!=0){
+
+            int r1=n1%10;
+            int r2=n2%10;
+            int temp=r1+r2+carry;
+            int remainder=temp%b;
+            carry=temp/b;
+            ans+=(remainder*power);
+            power*=10;
+            n1/=10;
+            n2/=10;
+
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n1=scn.nextInt();
+        int n2=scn.nextInt();
+        int b=scn.nextInt();
+
+        int aba=anyBaseAddition(n1,n2,b);
+        System.out.println(aba);
+    }
+
 }
+
 
 
