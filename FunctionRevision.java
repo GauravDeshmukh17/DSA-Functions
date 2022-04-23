@@ -220,7 +220,7 @@ public class FunctionRevision{
 // ANY BASE TO ANY BASE
 // (METHOD 1)
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -268,5 +268,47 @@ public class FunctionRevision{
         System.out.println(dtab);
     }
 
+}*/
+
+//-------------------------------------------------------------------------------------------------
+
+// ANY BASE TO ANY BASE
+// (METHOD 2)
+
+package com.company;
+
+import java.util.*;
+
+public class FunctionRevision{
+
+    public static int anyBaseToAnyBase(int b1,int b2,int n){
+
+        int ans=0;
+        int power=1;
+
+        while(n!=0){
+
+            int remainder=n%b2;
+            ans+=(remainder*power);
+            power*=b1;
+            n=n/b2;
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();  // n = number with base b1
+        int b1=scn.nextInt(); // b1 = base of n
+        int b2=scn.nextInt(); // b2 = base of number which is to be calculated
+
+        int anyBaseToDecimal=anyBaseToAnyBase(b1,10,n);
+        int decimalToAnyBase=anyBaseToAnyBase(10,b2,anyBaseToDecimal);
+
+        System.out.println(decimalToAnyBase);
+    }
+
 }
+
 
